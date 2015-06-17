@@ -1,0 +1,46 @@
+.root{
+	-fx-pref-width: 1024px;
+	-fx-pref-height: 768px;
+	-fx-background-color: #7CADAB;
+	-fx-padding: 10;
+}
+
+#title{
+   -fx-font-size: 38px;
+   -fx-font-family: "Arial Black";
+   -fx-fill: #d02323;
+   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+   -fx-padding: 100;
+}
+
+#logoGrid{
+	/*-fx-background-color: #777777;*/
+	/*-fx-background-image: 1.png;*/
+}
+
+#google{
+	-fx-text-fill: #0B3A38;
+}
+
+#social{
+	-fx-text-fill:#0B3A38;
+}
+
+#media{
+	-fx-text-fill:#0B3A38;
+}
+
+#accounts{
+	-fx-text-fill:#0B3A38;
+}
+
+#scraper{
+	-fx-text-fill:#0B3A38;
+}
+
+
+Button{
+	-fx-pref-width: 200px;
+	-fx-max-width: 200px;
+	-fx-min-width: 200px;
+}

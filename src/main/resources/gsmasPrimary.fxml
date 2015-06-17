@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import googlescraper.userinterface.SiteFound?>
+<?import googlescraper.userinterface.CheckBoxCellFactory?>
+
+<GridPane hgap="10.0" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" styleClass="root" stylesheets="@gsmasPrimary.css" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="googlescraper.userinterface.gsmasPrimaryController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="963.0" minWidth="10.0" prefWidth="208.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1285.0" minWidth="0.0" prefWidth="816.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="194.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="247.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="309.0" minHeight="0.0" prefHeight="189.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="199.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="226.0" minHeight="10.0" prefHeight="188.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="184.0" prefWidth="184.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="624.0" minWidth="10.0" prefWidth="498.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleFindAccounts" text="Find accounts" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+            <ProgressBar fx:id="findAccountsProgress" prefWidth="200.0" progress="0.0" GridPane.columnIndex="1" />
+            <Label fx:id="findAccountsProgressLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <GridPane id="logoGrid">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label id="media" text="Media" GridPane.rowIndex="3" />
+            <Label id="accounts" text="Accounts" GridPane.rowIndex="4" />
+            <Label id="scraper" text="Scraper" GridPane.rowIndex="5" />
+            <Label id="google" text="Google" GridPane.rowIndex="1" />
+            <Label id="social" text="Social" GridPane.rowIndex="2" />
+            <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="GSMAS" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="184.0" prefWidth="184.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="623.0" minWidth="10.0" prefWidth="617.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Search request string:" GridPane.halignment="RIGHT" />
+            <Label text="Scrape sites number:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <TextField fx:id="searchRequest" GridPane.columnIndex="1" />
+            <TextField fx:id="sitesNumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleSearch" text="Search by Google" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <ProgressBar fx:id="googleSearchProgress" prefWidth="200.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+            <Label fx:id="googleSearchProgressLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <TableView fx:id="sitesFoundTable" prefHeight="238.0" prefWidth="781.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+        <columns>
+          <TableColumn fx:id="process" prefWidth="84.0" text="Process">
+			   <cellFactory>
+					<CheckBoxCellFactory/>
+				</cellFactory>
+		  </TableColumn>
+          <TableColumn fx:id="domain" prefWidth="167.0" text="Domain" />
+          <TableColumn fx:id="description" prefWidth="431.0" text="Description" />
+          <TableColumn fx:id="startFromLink" prefWidth="275.0" text="Start from link" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" prefHeight="21.0" prefWidth="882.0" text="Sites found" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <Label alignment="CENTER" prefHeight="21.0" prefWidth="882.0" text="Accounts found" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <TableView fx:id="accountsFoundTable" prefHeight="173.0" prefWidth="976.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+        <columns>
+			<TableColumn fx:id="saveAccountsColumn" prefWidth="84.0" text="Save">
+				   <cellFactory>
+						<CheckBoxCellFactory/>
+					</cellFactory>
+			</TableColumn>
+            <TableColumn fx:id="domainAccountsColumn" prefWidth="275.0" text="Domain" />
+            <TableColumn fx:id="accountAccountsColumn" prefWidth="605.0" text="Account" />
+        </columns>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#handleSaveTo" text="Save to ..." GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+   </children>
+</GridPane>

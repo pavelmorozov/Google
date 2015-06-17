@@ -32,7 +32,7 @@ public class ScrapeThreadsStarter implements Runnable {
 			//create new thread
 			ScrapeQueueProcessor processor = new ScrapeQueueProcessor(
 					inputQueue, outputQueue);
-			Thread t = new Thread(processor);
+			Thread t = new Thread(processor, "ScrapeQueueProcessor_"+String.valueOf(threadsList.size()));
 			t.start();
 			threadsList.add(t);
 		}

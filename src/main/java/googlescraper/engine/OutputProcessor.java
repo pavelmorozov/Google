@@ -42,7 +42,7 @@ public class OutputProcessor implements Runnable {
 					System.out.println("================= Scrape complete =================");
 					break;
 				/*
-				 *  create new thread
+				 *  print out accounts
 				 */
 				} else {
 					System.out.println("=================== Domain data ===================");

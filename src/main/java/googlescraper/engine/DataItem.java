@@ -27,7 +27,7 @@ public class DataItem {
 	/*
 	 * Getters and setters
 	 */
-	String getDomainUrl() {
+	public String getDomainUrl() {
 		try {
 			return (new URL(url)).getHost();
 		} catch (MalformedURLException e) {
