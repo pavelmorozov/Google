@@ -8,9 +8,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class JavaFXStarter extends Application {
-
+	
+	Stage primaryStage;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
 		System.out.println("Start GSMAS application");
 		URL gsmasPrimary=null;
 		gsmasPrimary=getClass().getResource("/gsmasPrimary.fxml");
